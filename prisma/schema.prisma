@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+
+model Ticket {
+  id                String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  text              String
+  predictedCategory String   @map("predicted_category") @db.VarChar(100)
+  modelVersion      String   @map("model_version") @db.VarChar(100)
+  confidence        Float?
+  createdAt         DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@index([createdAt(sort: Desc)], map: "idx_tickets_created_at")
+  @@map("tickets")
+}
+
