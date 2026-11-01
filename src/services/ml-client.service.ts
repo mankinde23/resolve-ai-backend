@@ -6,11 +6,15 @@ import {
   type PredictionResponse,
 } from "../modules/predictions/predictions.schema.js";
 
-interface MlPredictionResponse {
-  predicted_category: string;
-  model_version: string;
-  confidence?: number | null;
-}
+// interface MlPredictionResponse {
+//   predicted_category: string;
+//   model_version: string;
+//   confidence: number | null;
+//   action: "auto_route" | "human_review" | "escalate";
+//   priority: "normal" | "high";
+//   requires_human_review: boolean;
+//   reason: string;
+// }
 
 export async function predictTicket(text: string): Promise<PredictionResponse> {
   let response: Response;
@@ -56,7 +60,8 @@ export async function predictTicket(text: string): Promise<PredictionResponse> {
   let body: unknown;
 
   try {
-    body = (await response.json()) as MlPredictionResponse;
+    // body = (await response.json()) as MlPredictionResponse;
+    body = await response.json();
   } catch {
     throw new ApiError(
       502,

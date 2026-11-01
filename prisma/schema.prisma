@@ -10,14 +10,20 @@ datasource db {
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 
 model Ticket {
-  id                String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  text              String
-  predictedCategory String   @map("predicted_category") @db.VarChar(100)
-  modelVersion      String   @map("model_version") @db.VarChar(100)
-  confidence        Float?
-  createdAt         DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
-
+  id                  String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  text                String
+  predictedCategory   String   @map("predicted_category") @db.VarChar(100)
+  modelVersion        String   @map("model_version") @db.VarChar(100)
+  confidence          Float?
+  action              String   @default("human_review") @db.VarChar(30)
+  priority            String   @default("normal") @db.VarChar(20)
+  requiresHumanReview Boolean  @default(true) @map("requires_human_review")
+  reason              String   @default("legacy_ticket_without_triage") @db.VarChar(100)
+  createdAt           DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  severity            String  @default("undetermined") @db.VarChar(20)
+  severityReason      String  @default("legacy_ticket_without_severity") 
+  @map("severity_reason") @db.VarChar(100)
+  needsMoreInformation Boolean @default(true) @map("needs_more_information")
   @@index([createdAt(sort: Desc)], map: "idx_tickets_created_at")
   @@map("tickets")
 }
-

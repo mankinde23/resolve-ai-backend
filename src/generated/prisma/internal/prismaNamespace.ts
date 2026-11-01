@@ -536,7 +536,14 @@ export const TicketScalarFieldEnum = {
   predictedCategory: 'predictedCategory',
   modelVersion: 'modelVersion',
   confidence: 'confidence',
-  createdAt: 'createdAt'
+  action: 'action',
+  priority: 'priority',
+  requiresHumanReview: 'requiresHumanReview',
+  reason: 'reason',
+  createdAt: 'createdAt',
+  severity: 'severity',
+  severityReason: 'severityReason',
+  needsMoreInformation: 'needsMoreInformation'
 } as const
 
 export type TicketScalarFieldEnum = (typeof TicketScalarFieldEnum)[keyof typeof TicketScalarFieldEnum]
@@ -597,6 +604,13 @@ export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, '
  * Reference to a field of type 'Float[]'
  */
 export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Boolean'
+ */
+export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 

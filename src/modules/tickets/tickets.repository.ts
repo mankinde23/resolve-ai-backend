@@ -5,6 +5,13 @@ export interface CreateTicketRecord {
   predictedCategory: string;
   modelVersion: string;
   confidence: number | null;
+  action: "auto_route" | "human_review" | "escalate";
+  priority: "normal" | "high";
+  requiresHumanReview: boolean;
+  reason: string;
+  severity: "critical" | "high" | "medium" | "low" | "undetermined";
+  severityReason: string;
+  needsMoreInformation: boolean;
 }
 
 export interface ListTicketsOptions {

@@ -4,7 +4,7 @@ import { ticketsRepository } from "./tickets.repository.js";
 
 export const ticketsService = {
   async create(text: string) {
-    // Classify first. Do not save a ticket if classification fails.
+    // Classify and obtain the triage decision first.
     const prediction = await classifyTicket(text);
 
     return ticketsRepository.create({
@@ -12,6 +12,13 @@ export const ticketsService = {
       predictedCategory: prediction.predicted_category,
       modelVersion: prediction.model_version,
       confidence: prediction.confidence ?? null,
+      action: prediction.action,
+      priority: prediction.priority,
+      requiresHumanReview: prediction.requires_human_review,
+      reason: prediction.reason,
+      severity: prediction.severity,
+      severityReason: prediction.severity_reason,
+      needsMoreInformation: prediction.needs_more_information,
     });
   },
 

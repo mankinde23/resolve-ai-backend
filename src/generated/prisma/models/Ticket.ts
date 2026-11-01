@@ -40,7 +40,14 @@ export type TicketMinAggregateOutputType = {
   predictedCategory: string | null
   modelVersion: string | null
   confidence: number | null
+  action: string | null
+  priority: string | null
+  requiresHumanReview: boolean | null
+  reason: string | null
   createdAt: Date | null
+  severity: string | null
+  severityReason: string | null
+  needsMoreInformation: boolean | null
 }
 
 export type TicketMaxAggregateOutputType = {
@@ -49,7 +56,14 @@ export type TicketMaxAggregateOutputType = {
   predictedCategory: string | null
   modelVersion: string | null
   confidence: number | null
+  action: string | null
+  priority: string | null
+  requiresHumanReview: boolean | null
+  reason: string | null
   createdAt: Date | null
+  severity: string | null
+  severityReason: string | null
+  needsMoreInformation: boolean | null
 }
 
 export type TicketCountAggregateOutputType = {
@@ -58,7 +72,14 @@ export type TicketCountAggregateOutputType = {
   predictedCategory: number
   modelVersion: number
   confidence: number
+  action: number
+  priority: number
+  requiresHumanReview: number
+  reason: number
   createdAt: number
+  severity: number
+  severityReason: number
+  needsMoreInformation: number
   _all: number
 }
 
@@ -77,7 +98,14 @@ export type TicketMinAggregateInputType = {
   predictedCategory?: true
   modelVersion?: true
   confidence?: true
+  action?: true
+  priority?: true
+  requiresHumanReview?: true
+  reason?: true
   createdAt?: true
+  severity?: true
+  severityReason?: true
+  needsMoreInformation?: true
 }
 
 export type TicketMaxAggregateInputType = {
@@ -86,7 +114,14 @@ export type TicketMaxAggregateInputType = {
   predictedCategory?: true
   modelVersion?: true
   confidence?: true
+  action?: true
+  priority?: true
+  requiresHumanReview?: true
+  reason?: true
   createdAt?: true
+  severity?: true
+  severityReason?: true
+  needsMoreInformation?: true
 }
 
 export type TicketCountAggregateInputType = {
@@ -95,7 +130,14 @@ export type TicketCountAggregateInputType = {
   predictedCategory?: true
   modelVersion?: true
   confidence?: true
+  action?: true
+  priority?: true
+  requiresHumanReview?: true
+  reason?: true
   createdAt?: true
+  severity?: true
+  severityReason?: true
+  needsMoreInformation?: true
   _all?: true
 }
 
@@ -191,7 +233,14 @@ export type TicketGroupByOutputType = {
   predictedCategory: string
   modelVersion: string
   confidence: number | null
+  action: string
+  priority: string
+  requiresHumanReview: boolean
+  reason: string
   createdAt: Date
+  severity: string
+  severityReason: string
+  needsMoreInformation: boolean
   _count: TicketCountAggregateOutputType | null
   _avg: TicketAvgAggregateOutputType | null
   _sum: TicketSumAggregateOutputType | null
@@ -223,7 +272,14 @@ export type TicketWhereInput = {
   predictedCategory?: Prisma.StringFilter<"Ticket"> | string
   modelVersion?: Prisma.StringFilter<"Ticket"> | string
   confidence?: Prisma.FloatNullableFilter<"Ticket"> | number | null
+  action?: Prisma.StringFilter<"Ticket"> | string
+  priority?: Prisma.StringFilter<"Ticket"> | string
+  requiresHumanReview?: Prisma.BoolFilter<"Ticket"> | boolean
+  reason?: Prisma.StringFilter<"Ticket"> | string
   createdAt?: Prisma.DateTimeFilter<"Ticket"> | Date | string
+  severity?: Prisma.StringFilter<"Ticket"> | string
+  severityReason?: Prisma.StringFilter<"Ticket"> | string
+  needsMoreInformation?: Prisma.BoolFilter<"Ticket"> | boolean
 }
 
 export type TicketOrderByWithRelationInput = {
@@ -232,7 +288,14 @@ export type TicketOrderByWithRelationInput = {
   predictedCategory?: Prisma.SortOrder
   modelVersion?: Prisma.SortOrder
   confidence?: Prisma.SortOrderInput | Prisma.SortOrder
+  action?: Prisma.SortOrder
+  priority?: Prisma.SortOrder
+  requiresHumanReview?: Prisma.SortOrder
+  reason?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  severity?: Prisma.SortOrder
+  severityReason?: Prisma.SortOrder
+  needsMoreInformation?: Prisma.SortOrder
 }
 
 export type TicketWhereUniqueInput = Prisma.AtLeast<{
@@ -244,7 +307,14 @@ export type TicketWhereUniqueInput = Prisma.AtLeast<{
   predictedCategory?: Prisma.StringFilter<"Ticket"> | string
   modelVersion?: Prisma.StringFilter<"Ticket"> | string
   confidence?: Prisma.FloatNullableFilter<"Ticket"> | number | null
+  action?: Prisma.StringFilter<"Ticket"> | string
+  priority?: Prisma.StringFilter<"Ticket"> | string
+  requiresHumanReview?: Prisma.BoolFilter<"Ticket"> | boolean
+  reason?: Prisma.StringFilter<"Ticket"> | string
   createdAt?: Prisma.DateTimeFilter<"Ticket"> | Date | string
+  severity?: Prisma.StringFilter<"Ticket"> | string
+  severityReason?: Prisma.StringFilter<"Ticket"> | string
+  needsMoreInformation?: Prisma.BoolFilter<"Ticket"> | boolean
 }, "id">
 
 export type TicketOrderByWithAggregationInput = {
@@ -253,7 +323,14 @@ export type TicketOrderByWithAggregationInput = {
   predictedCategory?: Prisma.SortOrder
   modelVersion?: Prisma.SortOrder
   confidence?: Prisma.SortOrderInput | Prisma.SortOrder
+  action?: Prisma.SortOrder
+  priority?: Prisma.SortOrder
+  requiresHumanReview?: Prisma.SortOrder
+  reason?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  severity?: Prisma.SortOrder
+  severityReason?: Prisma.SortOrder
+  needsMoreInformation?: Prisma.SortOrder
   _count?: Prisma.TicketCountOrderByAggregateInput
   _avg?: Prisma.TicketAvgOrderByAggregateInput
   _max?: Prisma.TicketMaxOrderByAggregateInput
@@ -270,7 +347,14 @@ export type TicketScalarWhereWithAggregatesInput = {
   predictedCategory?: Prisma.StringWithAggregatesFilter<"Ticket"> | string
   modelVersion?: Prisma.StringWithAggregatesFilter<"Ticket"> | string
   confidence?: Prisma.FloatNullableWithAggregatesFilter<"Ticket"> | number | null
+  action?: Prisma.StringWithAggregatesFilter<"Ticket"> | string
+  priority?: Prisma.StringWithAggregatesFilter<"Ticket"> | string
+  requiresHumanReview?: Prisma.BoolWithAggregatesFilter<"Ticket"> | boolean
+  reason?: Prisma.StringWithAggregatesFilter<"Ticket"> | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Ticket"> | Date | string
+  severity?: Prisma.StringWithAggregatesFilter<"Ticket"> | string
+  severityReason?: Prisma.StringWithAggregatesFilter<"Ticket"> | string
+  needsMoreInformation?: Prisma.BoolWithAggregatesFilter<"Ticket"> | boolean
 }
 
 export type TicketCreateInput = {
@@ -279,7 +363,14 @@ export type TicketCreateInput = {
   predictedCategory: string
   modelVersion: string
   confidence?: number | null
+  action?: string
+  priority?: string
+  requiresHumanReview?: boolean
+  reason?: string
   createdAt?: Date | string
+  severity?: string
+  severityReason?: string
+  needsMoreInformation?: boolean
 }
 
 export type TicketUncheckedCreateInput = {
@@ -288,7 +379,14 @@ export type TicketUncheckedCreateInput = {
   predictedCategory: string
   modelVersion: string
   confidence?: number | null
+  action?: string
+  priority?: string
+  requiresHumanReview?: boolean
+  reason?: string
   createdAt?: Date | string
+  severity?: string
+  severityReason?: string
+  needsMoreInformation?: boolean
 }
 
 export type TicketUpdateInput = {
@@ -297,7 +395,14 @@ export type TicketUpdateInput = {
   predictedCategory?: Prisma.StringFieldUpdateOperationsInput | string
   modelVersion?: Prisma.StringFieldUpdateOperationsInput | string
   confidence?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  action?: Prisma.StringFieldUpdateOperationsInput | string
+  priority?: Prisma.StringFieldUpdateOperationsInput | string
+  requiresHumanReview?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  reason?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  severity?: Prisma.StringFieldUpdateOperationsInput | string
+  severityReason?: Prisma.StringFieldUpdateOperationsInput | string
+  needsMoreInformation?: Prisma.BoolFieldUpdateOperationsInput | boolean
 }
 
 export type TicketUncheckedUpdateInput = {
@@ -306,7 +411,14 @@ export type TicketUncheckedUpdateInput = {
   predictedCategory?: Prisma.StringFieldUpdateOperationsInput | string
   modelVersion?: Prisma.StringFieldUpdateOperationsInput | string
   confidence?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  action?: Prisma.StringFieldUpdateOperationsInput | string
+  priority?: Prisma.StringFieldUpdateOperationsInput | string
+  requiresHumanReview?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  reason?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  severity?: Prisma.StringFieldUpdateOperationsInput | string
+  severityReason?: Prisma.StringFieldUpdateOperationsInput | string
+  needsMoreInformation?: Prisma.BoolFieldUpdateOperationsInput | boolean
 }
 
 export type TicketCreateManyInput = {
@@ -315,7 +427,14 @@ export type TicketCreateManyInput = {
   predictedCategory: string
   modelVersion: string
   confidence?: number | null
+  action?: string
+  priority?: string
+  requiresHumanReview?: boolean
+  reason?: string
   createdAt?: Date | string
+  severity?: string
+  severityReason?: string
+  needsMoreInformation?: boolean
 }
 
 export type TicketUpdateManyMutationInput = {
@@ -324,7 +443,14 @@ export type TicketUpdateManyMutationInput = {
   predictedCategory?: Prisma.StringFieldUpdateOperationsInput | string
   modelVersion?: Prisma.StringFieldUpdateOperationsInput | string
   confidence?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  action?: Prisma.StringFieldUpdateOperationsInput | string
+  priority?: Prisma.StringFieldUpdateOperationsInput | string
+  requiresHumanReview?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  reason?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  severity?: Prisma.StringFieldUpdateOperationsInput | string
+  severityReason?: Prisma.StringFieldUpdateOperationsInput | string
+  needsMoreInformation?: Prisma.BoolFieldUpdateOperationsInput | boolean
 }
 
 export type TicketUncheckedUpdateManyInput = {
@@ -333,7 +459,14 @@ export type TicketUncheckedUpdateManyInput = {
   predictedCategory?: Prisma.StringFieldUpdateOperationsInput | string
   modelVersion?: Prisma.StringFieldUpdateOperationsInput | string
   confidence?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  action?: Prisma.StringFieldUpdateOperationsInput | string
+  priority?: Prisma.StringFieldUpdateOperationsInput | string
+  requiresHumanReview?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  reason?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  severity?: Prisma.StringFieldUpdateOperationsInput | string
+  severityReason?: Prisma.StringFieldUpdateOperationsInput | string
+  needsMoreInformation?: Prisma.BoolFieldUpdateOperationsInput | boolean
 }
 
 export type TicketCountOrderByAggregateInput = {
@@ -342,7 +475,14 @@ export type TicketCountOrderByAggregateInput = {
   predictedCategory?: Prisma.SortOrder
   modelVersion?: Prisma.SortOrder
   confidence?: Prisma.SortOrder
+  action?: Prisma.SortOrder
+  priority?: Prisma.SortOrder
+  requiresHumanReview?: Prisma.SortOrder
+  reason?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  severity?: Prisma.SortOrder
+  severityReason?: Prisma.SortOrder
+  needsMoreInformation?: Prisma.SortOrder
 }
 
 export type TicketAvgOrderByAggregateInput = {
@@ -355,7 +495,14 @@ export type TicketMaxOrderByAggregateInput = {
   predictedCategory?: Prisma.SortOrder
   modelVersion?: Prisma.SortOrder
   confidence?: Prisma.SortOrder
+  action?: Prisma.SortOrder
+  priority?: Prisma.SortOrder
+  requiresHumanReview?: Prisma.SortOrder
+  reason?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  severity?: Prisma.SortOrder
+  severityReason?: Prisma.SortOrder
+  needsMoreInformation?: Prisma.SortOrder
 }
 
 export type TicketMinOrderByAggregateInput = {
@@ -364,7 +511,14 @@ export type TicketMinOrderByAggregateInput = {
   predictedCategory?: Prisma.SortOrder
   modelVersion?: Prisma.SortOrder
   confidence?: Prisma.SortOrder
+  action?: Prisma.SortOrder
+  priority?: Prisma.SortOrder
+  requiresHumanReview?: Prisma.SortOrder
+  reason?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  severity?: Prisma.SortOrder
+  severityReason?: Prisma.SortOrder
+  needsMoreInformation?: Prisma.SortOrder
 }
 
 export type TicketSumOrderByAggregateInput = {
@@ -383,6 +537,10 @@ export type NullableFloatFieldUpdateOperationsInput = {
   divide?: number
 }
 
+export type BoolFieldUpdateOperationsInput = {
+  set?: boolean
+}
+
 export type DateTimeFieldUpdateOperationsInput = {
   set?: Date | string
 }
@@ -395,7 +553,14 @@ export type TicketSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   predictedCategory?: boolean
   modelVersion?: boolean
   confidence?: boolean
+  action?: boolean
+  priority?: boolean
+  requiresHumanReview?: boolean
+  reason?: boolean
   createdAt?: boolean
+  severity?: boolean
+  severityReason?: boolean
+  needsMoreInformation?: boolean
 }, ExtArgs["result"]["ticket"]>
 
 export type TicketSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -404,7 +569,14 @@ export type TicketSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extens
   predictedCategory?: boolean
   modelVersion?: boolean
   confidence?: boolean
+  action?: boolean
+  priority?: boolean
+  requiresHumanReview?: boolean
+  reason?: boolean
   createdAt?: boolean
+  severity?: boolean
+  severityReason?: boolean
+  needsMoreInformation?: boolean
 }, ExtArgs["result"]["ticket"]>
 
 export type TicketSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -413,7 +585,14 @@ export type TicketSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extens
   predictedCategory?: boolean
   modelVersion?: boolean
   confidence?: boolean
+  action?: boolean
+  priority?: boolean
+  requiresHumanReview?: boolean
+  reason?: boolean
   createdAt?: boolean
+  severity?: boolean
+  severityReason?: boolean
+  needsMoreInformation?: boolean
 }, ExtArgs["result"]["ticket"]>
 
 export type TicketSelectScalar = {
@@ -422,10 +601,17 @@ export type TicketSelectScalar = {
   predictedCategory?: boolean
   modelVersion?: boolean
   confidence?: boolean
+  action?: boolean
+  priority?: boolean
+  requiresHumanReview?: boolean
+  reason?: boolean
   createdAt?: boolean
+  severity?: boolean
+  severityReason?: boolean
+  needsMoreInformation?: boolean
 }
 
-export type TicketOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "text" | "predictedCategory" | "modelVersion" | "confidence" | "createdAt", ExtArgs["result"]["ticket"]>
+export type TicketOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "text" | "predictedCategory" | "modelVersion" | "confidence" | "action" | "priority" | "requiresHumanReview" | "reason" | "createdAt" | "severity" | "severityReason" | "needsMoreInformation", ExtArgs["result"]["ticket"]>
 
 export type $TicketPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Ticket"
@@ -436,7 +622,14 @@ export type $TicketPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     predictedCategory: string
     modelVersion: string
     confidence: number | null
+    action: string
+    priority: string
+    requiresHumanReview: boolean
+    reason: string
     createdAt: Date
+    severity: string
+    severityReason: string
+    needsMoreInformation: boolean
   }, ExtArgs["result"]["ticket"]>
   composites: {}
 }
@@ -865,7 +1058,14 @@ export interface TicketFieldRefs {
   readonly predictedCategory: Prisma.FieldRef<"Ticket", 'String'>
   readonly modelVersion: Prisma.FieldRef<"Ticket", 'String'>
   readonly confidence: Prisma.FieldRef<"Ticket", 'Float'>
+  readonly action: Prisma.FieldRef<"Ticket", 'String'>
+  readonly priority: Prisma.FieldRef<"Ticket", 'String'>
+  readonly requiresHumanReview: Prisma.FieldRef<"Ticket", 'Boolean'>
+  readonly reason: Prisma.FieldRef<"Ticket", 'String'>
   readonly createdAt: Prisma.FieldRef<"Ticket", 'DateTime'>
+  readonly severity: Prisma.FieldRef<"Ticket", 'String'>
+  readonly severityReason: Prisma.FieldRef<"Ticket", 'String'>
+  readonly needsMoreInformation: Prisma.FieldRef<"Ticket", 'Boolean'>
 }
     
 
